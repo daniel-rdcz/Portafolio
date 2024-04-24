@@ -1,13 +1,132 @@
-<!doctype html>
-<html lang="en">
-  <head>
-    <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-    <title>Home</title>
-  </head>
-  <body>
-    <div>
-        <h1>Working ...</h1>
-        <p>-Daniel</p>
-    </div>
-  </body>
+---
+
+---
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Work in Progress</title>
+  <!-- Enlace a Tailwind CSS CDN -->
+  <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
+  <!-- Estilos adicionales si los necesitas -->
+  <style>
+    /* Estilos CSS adicionales si es necesario */
+  </style>
+</head>
+<body class="bg-gray-100 h-screen flex items-center justify-center">
+  <div class="text-center">
+    <h1 class="text-4xl font-bold mb-4">
+		Cargando
+		<div class="loading__dots">
+			<span class="loading__dot"></span>
+			<span class="loading__dot"></span>
+			<span class="loading__dot"></span>
+			<span class="loading__dot">
+				<span class="loading__dot_down"></span>
+			</span>
+		</div>
+	</h1>
+    <p class="text-lg text-gray-600 mb-8">-Daniel</p>
+  </div>
+</body>
+</html>
+
+<style>
+	/*=============== GOOGLE FONTS ===============*/
+	@import url("https://fonts.googleapis.com/css2?family=Inter:wght@800&display=swap");
+	/*=============== VARIABLES CSS ===============*/
+	:root {
+	/*========== Colors ==========*/
+	--body-color: hsl(0, 0%, 96%);
+	--text-color: hsl(0, 0%, 12%);
+	/*========== Font and typography ==========*/
+	--body-font: "Inter", sans-serif;
+	--loading-font-size: 2rem;
+	}
+
+	/*=============== LOADING ===============*/
+	* {
+	box-sizing: border-box;
+	padding: 0;
+	margin: 0;
+	}
+
+	body {
+	height: 100vh;
+	display: grid;
+	place-items: center;
+	background-color: var(--body-color);
+	overflow: hidden;
+	}
+
+	.loading {
+	color: var(--text-color);
+	font-size: var(--loading-font-size);
+	font-family: var(--body-font);
+	}
+	.loading__dots {
+	display: inline-flex;
+	column-gap: 0.25rem;
+	}
+	.loading__dot {
+	position: relative;
+	width: 8px;
+	height: 8px;
+	background-color: var(--text-color);
+	border-radius: 50%;
+	}
+	.loading__dot:nth-child(1) {
+	position: absolute;
+	transform: scale(0);
+	}
+	.loading__dot:nth-child(4) {
+	background: transparent;
+	}
+	.loading__dot-down {
+	display: block;
+	width: 8px;
+	height: 8px;
+	background-color: var(--text-color);
+	border-radius: 50%;
+	transform: translate(0);
+	}
+
+	/* Add animated class */
+	.animate .loading__dot:nth-child(1) {
+	animation: scale-dot 0.8s 0.2s forwards;
+	}
+	.animate .loading__dot:nth-child(2), .animate .loading__dot:nth-child(3) {
+	animation: move-right 0.6s forwards;
+	}
+	.animate .loading__dot-down {
+	animation: move-right-down 0.8s 0.2s forwards linear, move-down 2.8s 0.3s forwards ease-in;
+	}
+
+	/* Animated dot 1 */
+	@keyframes scale-dot {
+	100% {
+		transform: scale(1);
+	}
+	}
+	/* Animated dot 2 & 3*/
+	@keyframes move-right {
+	100% {
+		transform: translateX(0.75rem);
+	}
+	}
+	/* Animated dot 4 */
+	@keyframes move-right-down {
+	50% {
+		transform: translate(1.5rem, 0.25rem);
+	}
+	100% {
+		transform: translate(2rem, 0.5rem);
+	}
+	}
+	@keyframes move-down {
+	100% {
+		transform: translate(10rem, 80vh);
+	}
+	}
+</style>
