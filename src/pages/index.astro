@@ -3,20 +3,147 @@ import Layout from '../layouts/Layout.astro';
 ---
 
 <Layout title="Portafolio">
-	<body>
-		<div>
-			<main >
-				<div style="border: 5px;">
-					
-					<div>
-						<h1>HOLA</h1>
-					</div>
-				</div>
-			</main>
-		</div>
-	</body>
+    <body>
+        <div>
+            <main>
+                <div class="master-container">
+                    <div class="cont-container">
+                        <div class="primary-div p-first-child" style="--height: 40.42%;">
+                            
+                        </div>
+                        <div class="primary-div p-second-child" style="--height: 59.58%">
+                            <div class="secondary-div s-fist-child" style="--width: 31.73%;">
+								<div class="terciary-div-l tl-first-child" style="--height: 69.14%">
+									
+								</div>
+								<div class="terciary-div-l tl-second-child" style="--height: 30.86%">
+									
+								</div>
+							</div>
+							<div class="secondary-div s-second-child" style="--width: 68.27%;">
+								<div class="terciary-div-r tr-first-child" style="--height: 30.86%">
+									
+								</div>
+								<div class="terciary-div-r tr-second-child" style="--height: 69.14%">
+									<div class="cuaternary-div c-first-child" style="--width: 78.83%">
+										
+									</div>
+									<div class="cuaternary-div c-second-child" style="--width: 21.17%">
+										<div class="centenary-div ce-first-child" style="--height: 15.91%">
+
+										</div>
+										<div class="centenary-div ce-second-child" style="--height: 55.51%">
+											
+										</div>
+										<div class="centenary-div ce-third-child" style="--height: 28.58%">
+											
+										</div>
+										
+									</div>
+								</div>
+							</div>
+                        </div>
+                    </div>
+                </div>
+            </main>
+        </div>
+    </body>
 </Layout>
 
 <style>
-	
+    .master-container {
+        height: 100vh;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+    }
+
+    .cont-container {
+        width: 50%;
+        height: 80%;
+        display: flex;
+        flex-direction: column;
+    }
+
+    .p-second-child, .tr-second-child  {
+		display: flex;
+        flex-direction: row;
+    }
+
+	.s-fist-child, .s-second-child, .c-second-child {
+		display: flex;
+		flex-direction: column;
+	}
+
+	.primary-div {
+        height: var(--height);
+        margin: 0px 5px 5px 5px; 
+    }
+	.secondary-div {
+		width: var(--width);
+		margin: 0px 5px 5px 0px;
+	}
+
+	.terciary-div-l, .terciary-div-r {
+		height: var(--height);
+		margin: 5px 0px 0px 0px;
+	}
+
+	.cuaternary-div {
+		width: var(--width);
+		margin: 0px 0px 0px 5px;
+	}
+
+	.centenary-div {
+		height: var(--height);
+		margin: 0px 0px 0px 0px;
+	}
+
+	.p-first-child {
+        margin-top: 5px;
+        background-color: #585858;
+        border: double 2px transparent;
+        border-radius: 1em;
+        background-image: linear-gradient(#585858, #585858), linear-gradient(to right, #FFFFFF, #597EFF);
+        background-origin: border-box;
+        background-clip: content-box, border-box;
+        transition: border-color 0.5s ease, transform 0.3s ease;
+    }
+
+	.tl-second-child {
+		background-color: #585858;
+        border: double 2px transparent;
+        border-radius: 1em;
+        background-image: linear-gradient(#585858, #585858), linear-gradient(to right, #FFFFFF, #597EFF);
+        background-origin: border-box;
+        background-clip: content-box, border-box;
+        transition: border-color 0.5s ease, transform 0.3s ease;
+	}
+
+	.tr-first-child, .tl-first-child, .c-first-child, .ce-first-child {
+		margin-top: 0px;
+		margin-left: 0px;
+		background-color: #585858;
+		border: double 2px transparent;
+		border-radius: 1em;
+		background-image: linear-gradient(#585858, #585858), linear-gradient(to right, #FFFFFF, #597EFF);
+		background-origin: border-box;
+		background-clip: content-box, border-box;
+		transition: border-color 0.5s ease, transform 0.3s ease;
+	}
+	.ce-second-child, .ce-third-child {
+		margin-top: 5px;
+		background-color: #585858;
+		border: double 2px transparent;
+		border-radius: 1em;
+		background-image: linear-gradient(#585858, #585858), linear-gradient(to right, #FFFFFF, #597EFF);
+		background-origin: border-box;
+		background-clip: content-box, border-box;
+		transition: border-color 0.5s ease, transform 0.3s ease;
+	}
+
+	.p-first-child:hover, .tl-first-child:hover, .tl-second-child:hover, .tr-first-child:hover, .c-first-child:hover, .ce-first-child:hover, .ce-second-child:hover, .ce-third-child:hover {
+		border-color: #597EFF; 
+		transform: translateY(-3px); 
+	}
 </style>
