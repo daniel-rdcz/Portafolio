@@ -9,7 +9,7 @@ import Buttons from '../components/buttons.astro';
 
 <Layout title="Portafolio">
     <main class="flex h-screen w-screen justify-center">
-        <div class=" m-10 flex flex-wrap text-center wrapper" id="wrapper">
+        <div class=" m-10 wrapper" id="wrapper">
             <Header/>
             <AbMePro/>
             <Main/>
@@ -18,10 +18,9 @@ import Buttons from '../components/buttons.astro';
         </div>
     </main>
 </Layout>
-
 <script src="https://unpkg.com/animate-css-grid@1.3.0"></script>
 <script src="../scripts/gridAnimation"></script>
-
+<script src="../scripts/cardHover"></script>
 <style>
     :global(.wrapper) {
         display: grid;
@@ -45,5 +44,38 @@ import Buttons from '../components/buttons.astro';
             "main"
             "buttons"
             "contact";
+    }
+
+    :global(.card) {
+        grid-area: header;
+        position: relative;
+        background: rgba(45, 45, 45, 1);
+        border-radius: 20px;
+        overflow: hidden;
+    }
+
+    :global(.card::before) {
+        content: '';
+        position: absolute;
+        top: var(--y);
+        left: var(--x);
+        transform: translate(-50%, -50%);
+        background: radial-gradient(var(--clr), transparent, transparent);
+        width: 800px;
+        height: 800px;
+        opacity: 0;
+        transition: 0.3s, top 0s, left 0s;
+    }
+
+    :global(.card:hover::before) {
+        opacity: 1;
+    }
+
+    :global(.card::after) {
+        content: '';
+        position: absolute;
+        inset: 3px;
+        border-radius: 18px;
+        background: rgba(45, 45, 45, 0.90);
     }
 </style>
