@@ -1,9 +1,9 @@
 ---
 import Layout from '../layouts/Layout.astro';
 import Header from '../components/header.astro';
-import AbMePro from '../components/aboutMe&Projects.astro';
+import Experience from '../components/experience.astro';
 import Contact from '../components/contact.astro';
-import Main from '../components/main.astro';
+import Projects from '../components/projects.astro';
 import Buttons from '../components/buttons.astro';
 ---
 
@@ -11,8 +11,8 @@ import Buttons from '../components/buttons.astro';
     <main class="flex h-screen w-screen justify-center">
         <div class=" m-10 wrapper" id="wrapper">
             <Header/>
-            <AbMePro/>
-            <Main/>
+            <Experience/>
+            <Projects/>
             <Contact/>
             <Buttons/>
         </div>
@@ -24,58 +24,82 @@ import Buttons from '../components/buttons.astro';
 <style>
     :global(.wrapper) {
         display: grid;
-        grid-template-columns: 2fr 3fr 1fr;
-        grid-template-rows: 5fr 3fr 5fr;
+        grid-template-columns: 2fr 1fr 2fr;
+        grid-template-rows: max-content 3fr 5fr;
         gap: 10px;
         width: 100%;
+        min-height: 670px;
         max-width: 1200px;
         grid-template-areas:
             "header header header"
-            "aboutMeProjects contact contact"
-            "aboutMeProjects main buttons";
+            "experience buttons contact"
+            "experience projects projects";
     }
 
     :global(.wrapper.small-screen) {
         grid-template-columns: 1fr;
-        grid-template-rows: auto auto auto auto auto;
+        grid-template-rows: max-content max-content max-content max-content max-content ;
         grid-template-areas:
             "header"
-            "aboutMeProjects"
-            "main"
+            "experience"
+            "projects"
             "buttons"
             "contact";
     }
 
     :global(.card) {
-        grid-area: header;
-        position: relative;
-        background: rgba(45, 45, 45, 1);
-        border-radius: 20px;
-        overflow: hidden;
-    }
+    position: relative;
+    background: rgba(45, 45, 45, 1);
+    border-radius: 20px;
+    overflow: hidden;
+}
 
-    :global(.card::before) {
-        content: '';
-        position: absolute;
-        top: var(--y);
-        left: var(--x);
-        transform: translate(-50%, -50%);
-        background: radial-gradient(var(--clr), transparent, transparent);
-        width: 800px;
-        height: 800px;
-        opacity: 0;
-        transition: 0.3s, top 0s, left 0s;
-    }
+:global(.card::before) {
+    content: '';
+    position: absolute;
+    top: var(--y);
+    left: var(--x);
+    transform: translate(-50%, -50%);
+    background: radial-gradient(var(--clr), transparent, transparent);
+    width: 800px;
+    height: 800px;
+    opacity: 0;
+    transition: 0.3s, top 0s, left 0s;
+    z-index: 1; /* Ensure ::before is below the text */
+}
 
-    :global(.card:hover::before) {
-        opacity: 1;
-    }
+:global(.card:hover::before) {
+    opacity: 1;
+}
 
-    :global(.card::after) {
-        content: '';
-        position: absolute;
-        inset: 3px;
-        border-radius: 18px;
-        background: rgba(45, 45, 45, 0.90);
-    }
+:global(.card::after) {
+    content: '';
+    position: absolute;
+    inset: 3px;
+    border-radius: 18px;
+    background: rgba(45, 45, 45, 0.90);
+    z-index: 2; 
+}
+:global(.card:hover .special-text) {
+    color: var(--clr);
+}
+
+:global(.special-text) {
+    position: relative;
+    color: rgb(80, 80, 80);
+    transition: color 0.5s;
+    z-index: 3; /* Ensure text is on top */
+}
+
+:global(.normal-text) {
+    position: relative;
+    color: rgb(80, 80, 80);
+    transition: color 0.5s;
+    z-index: 3;
+}
+
+:global(.card:hover .normal-text) {
+    color: white;
+}
+
 </style>

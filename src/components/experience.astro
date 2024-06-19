@@ -1,0 +1,61 @@
+<div class=" h-full card pt-4 pl-6" style="--clr: #597EFF">
+    <div class="timeline h-full pb-2">
+        <b class="special-text  text-2xl card-title">Work Experience</b>
+        <div class="timeline-top h-full pl-1" >
+            <div class="timeline-line h-hull">
+                    
+            </div>
+        </div>
+        <div class="timeline-buttom pl-1">
+            <div class="timeline-line h-full">
+                
+            </div>
+        </div>
+    </div>
+</div>
+
+<style>
+    .card {
+        grid-area: experience;
+    }
+
+    .card-title{
+        grid-area: card-title;
+    }
+
+    .timeline{
+        display: grid;
+        grid-template-columns: 1fr;
+        grid-template-rows: 1fr 6fr 6fr;
+        grid-template-areas: "card-title"
+                             "timeline-top" 
+                             "timeline-buttom";
+    }
+
+    .timeline-top{
+        z-index: 3;
+        display: grid;
+        grid-area: timeline-top;
+        grid-template-columns: 1fr 2fr 3fr;
+        grid-template-rows: 1fr;
+        grid-template-areas: "timeline-line" "timeline-title" "timeline-description";
+    }
+    .timeline-buttom{
+        display: grid;
+        grid-area: timeline-buttom;
+        grid-template-columns: 1fr 2fr 3fr;
+        grid-template-rows: 1fr;
+        grid-template-areas: "timeline-line" "timeline-title" "timeline-description";
+    }
+
+    .timeline-line{
+        grid-area: timeline-line;
+        z-index: 3;
+        border-left: 1px solid rgb(80, 80, 80);
+        transition: border-left 0.5s;
+    }
+
+    .card:hover .timeline-line{
+        border-left: 1px solid white;
+    }
+</style>

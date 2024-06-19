@@ -1,10 +1,52 @@
-<div class="h-full rounded-lg card" style="--clr: #597EFF">
-    
+<div class="h-full card" style="--clr: #597EFF">
+    <div class="header-content p-6">
+        <div class="text-content">
+            <p class="normal-text text-lg">
+                <i class="special-text text-2lg">Hi, I'm</i> <br>
+                <b class="special-text text-3xl">Daniel Rodríguez</b> <br>
+                Software Engineer from the <b class="special-text">Monterrey Institute of Technology</b> with experience in developing technological solutions.
+                I have contributed to ensuring optimal functionality of websites and led projects in network design, developed as a data scientist and 3D simulations.
+                Proficient in a wide range of technologies, from Python and JavaScript to Next.js and Node.js.
+                Passionate about problem-solving and effective collaboration in multidisciplinary teams.
+                Open to new opportunities in the field of software engineering.
+            </p>
+        </div>
+        <div class="image-content">
+            <img src="/src/imgs/bitmogi_portafolio.png" alt="Bitmogi" class="bitmogi">
+        </div>
+    </div>
 </div>
 
 <style>
-    div {
+    .card {
         grid-area: header;
     }
-    
+
+    .header-content {
+        display: grid;
+        grid-template-columns: 1fr 1fr 1fr 10%;
+        grid-template-rows: 1fr;
+        grid-template-areas: "text text text img";
+    }
+    .text-content {
+        grid-area: text;
+    }
+
+    .image-content{
+        display: grid;
+        place-items: center;     /* Centra horizontal y verticalmente */
+        grid-area: img;
+        z-index: 3;
+    }
+
+    .bitmogi {
+        max-width: 100%;
+        border-radius: 100%;
+        filter: grayscale(100%); /* Aplica filtro gris */
+        transition: filter 0.3s; /* Añade una transición suave */
+    }
+
+    .card:hover .bitmogi {
+        filter: none; /* Quita el filtro gris en hover */
+    }
 </style>
